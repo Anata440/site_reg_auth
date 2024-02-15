@@ -9,16 +9,14 @@ $mysql = new mysqli('localhost', 'root', 'root', 'register-bd');
 $result = $mysql->query("SELECT * FROM `users` WHERE `login` = '$login' AND `pass` = '$pass'");
 
 $user = $result->fetch_assoc();
-if(count($user) == 0) {
+if(!$user) {
     echo "Такой пользователь не найден";
     exit();
 }
 
-setcookie('user', $user['name'], time()+ 3600,'/');
-
+setcookie('user', $user['name'], time() + 3600,'/');
 
 $mysql->close();
 
-header('Location: ../index.html');
-
+header('Location: ../index.php');
 ?>

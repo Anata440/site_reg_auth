@@ -23,6 +23,6 @@ $mysql->query("INSERT INTO `users` (`login` , `name`, `pass`) VALUES ('$login', 
 
 $mysql->close();
 
-header('Location: ../index.html');
+header('Location: ../index.php');
 
 ?>
